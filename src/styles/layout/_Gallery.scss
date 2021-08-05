@@ -1,0 +1,21 @@
+.gallery{
+    display: grid;
+    row-gap: 1.5rem;
+    padding: 1.5rem; 
+    
+    @media screen and (min-width: 768px){
+        grid-template-columns: 1fr 1fr;
+        column-gap: 1.5rem;
+        padding: 2.5rem;
+    }
+
+    @media screen and (min-width: 1100px){
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media screen and (min-width: 1440px){
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        row-gap: 2.5rem;
+        column-gap: 2.5rem;
+    }
+}
