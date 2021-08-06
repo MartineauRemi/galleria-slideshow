@@ -1,20 +1,24 @@
 import React from 'react'
-import {Link} from "react-router-dom"
 
-export default function Thumbnail({data}) {
+export default function Thumbnail({data,index, setSlideshowActive, setCurrentPainting}) {
+    const imgBaseURL = '/assets/'
+    const imgEndURL = '/thumbnail.jpg'
+    const imgCompleteURL = imgBaseURL + data.slug + imgEndURL
 
-    //get rid of the spaces and uppercase letters
-    //so it can be used for the url
-    const formatedName = data.name.replaceAll(' ', '-').toLowerCase()
+    function onClickThumbnail(){
+        setSlideshowActive(true)
+        setCurrentPainting(index)
+    }
 
     return (
-        <Link
+        <button
             className="thumbnail"
-            to={`/galleria-slideshow/paintings/${formatedName}`}>
+            onClick={onClickThumbnail}>
                 <figcaption>
                     <h2>{data.name}</h2>
                     <h3>{data.artist.name}</h3>
                 </figcaption>
-        </Link>
+                <img src={imgCompleteURL} alt={data.name} />
+        </button>
     )
 }

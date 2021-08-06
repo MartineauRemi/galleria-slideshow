@@ -7,9 +7,18 @@
     font-family: 'Libre Baskerville', serif;
 }
 
+p{
+    color: $gray;
+}
+
 .App{
-    padding-top: 5rem;
+    // padding-top: 6.125rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
     @media screen and (min-width: 768px){
-        padding-top: 5.5rem;
+        // padding-top: 8.125rem;
     }
 }

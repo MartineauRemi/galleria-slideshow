@@ -1,21 +1,30 @@
 .gallery{
-    display: grid;
-    row-gap: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    align-items: flex-start;
     padding: 1.5rem; 
+    margin-top: 6.125rem;
+    
+    .col{
+        width: 327px;
+    }
+
+    .thumbnail{
+        margin-bottom: 1.5rem;
+    }
     
     @media screen and (min-width: 768px){
-        grid-template-columns: 1fr 1fr;
-        column-gap: 1.5rem;
         padding: 2.5rem;
+        width: 48rem;
     }
 
     @media screen and (min-width: 1100px){
-        grid-template-columns: 1fr 1fr 1fr;
+        margin-top: 8.125rem;
     }
 
     @media screen and (min-width: 1440px){
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        row-gap: 2.5rem;
-        column-gap: 2.5rem;
+        
     }
 }

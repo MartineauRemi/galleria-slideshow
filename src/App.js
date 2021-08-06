@@ -1,27 +1,40 @@
 import './styles/styles.scss'
-import data from './data/data.json'
+import paintings from './data/data.json'
 import {useState} from 'react'
 import Header from './layout/Header'
 import Gallery from "./layout/Gallery"
-import {BrowserRouter, Route} from "react-router-dom"
+import PaintingDetails from './pages/PaintingDetails'
+
+const PAINTINGS_NB = paintings.length
 
 function App() {
   const [slideshowActive, setSlideshowActive] = useState(false)
   
   //The painting displayed in the slideshow
-  const [currentPainting, setCurrentPainting] = useState(data[0])
-  
+  const [currentPaintingIndex, setCurrentPaintingIndex] = useState(0)
+
+  //enable 'previous' and 'next' buttons
+  //in the 'PaintingsDetail' component to enable a loop
+  const nextPainting = () => setCurrentPaintingIndex((currentPaintingIndex + 1) % PAINTINGS_NB)
+  const previousPainting = () => setCurrentPaintingIndex(currentPaintingIndex === 0 ? 0 : currentPaintingIndex - 1)
+
+
   return (
-    <BrowserRouter>
-      <div className="App">
-        {/* set up the router */}
-        <Route exact path="/galleria-slideshow" component={Gallery} />
-        <Route path="/Audiophile/paintings/:slug" component={Gallery} />
-        
-        <Header slideshowActive={slideshowActive} setSlideshowActive={setSlideshowActive}/>
-        <Gallery data={data}/>
-      </div>
-    </BrowserRouter>
+    <div className="App">
+      <Header slideshowActive={slideshowActive} setSlideshowActive={setSlideshowActive}/>
+      {slideshowActive
+      ? <PaintingDetails
+          paintingIndex={currentPaintingIndex}
+          previousPainting={previousPainting}
+          nextPainting={nextPainting}
+          paintingsNb={PAINTINGS_NB} />
+
+      : <Gallery
+          setSlideshowActive={setSlideshowActive}
+          setCurrentPaintingIndex={setCurrentPaintingIndex}
+          previousPainting={previousPainting}
+          nextPainting={nextPainting}/>}
+    </div>
   );
 }
 

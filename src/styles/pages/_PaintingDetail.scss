@@ -1,0 +1,68 @@
+.painting-details{
+    padding: 1.5rem;
+    margin-top: 6.125rem;
+    
+    footer{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 1.5rem;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        border-top: 1px solid $light-gray;
+    }
+
+    &__modal{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.9);
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__modal-content{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        button{
+            margin-bottom: 2rem;
+        }
+
+        img{
+            height: 65vh;
+        }
+    }
+
+    &__main-infos *{
+            display: block;
+    }
+
+    &__previous-painting-btn{
+        margin-right: 1.5rem;
+    }
+
+    @media screen and (min-width: 768px){
+        padding: 2.5rem;
+        margin-top: 8.125rem;
+
+        footer{
+            padding: 1.5rem 2.5rem;
+        }
+        &__description-container{
+            width: 35.5rem;
+        }
+
+        &__previous-painting{
+            margin-right: 2.5rem;
+        }
+    }
+}
