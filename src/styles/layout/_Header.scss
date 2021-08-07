@@ -10,17 +10,7 @@
     left: 0;
     border: 1px solid $light-gray;
     background: $white;
-
-    button{
-        border: none;
-        text-transform: uppercase;
-        cursor: pointer;
-        background: transparent;
-        color: $gray;
-        &:hover{
-            color: $black;
-        }
-    }
+    z-index: 2;
 
     @media screen and (min-width: 768px){
         padding: 2rem 2.5rem;

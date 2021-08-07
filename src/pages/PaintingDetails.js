@@ -6,8 +6,12 @@ export default function PaintingDetails({paintingIndex, previousPainting, nextPa
     const [modalActive, setModalActive] = useState(false)
 
     const paintingBaseURL = '/assets/'
-    const paintingEndURL = '/gallery.jpg'
-    const paintingCompleteURL = paintingBaseURL + painting.slug + paintingEndURL
+    const galleryEndURL = '/gallery.jpg'
+    const heroLarge = '/hero-large.jpg'
+    const heroSmall = '/hero-small.jpg'
+
+
+    const galleryCompleteURL = paintingBaseURL + painting.slug + galleryEndURL
     const viewImgURL = "/assets/shared/icon-view-image.svg"
     const previousBtnImgURL = '/assets/shared/icon-back-button.svg'
     const nextBtnImgURL = '/assets/shared/icon-next-button.svg'
@@ -24,26 +28,32 @@ export default function PaintingDetails({paintingIndex, previousPainting, nextPa
                             >
                             close
                         </button>
-                        <img src={paintingCompleteURL} alt=""/>
+                        <img src={galleryCompleteURL} alt=""/>
                     </div>
                 </section>
             )
             : null}
             <main>
-                <h1>{painting.name}</h1>
-                <h3>{painting.artist.name}</h3>
                 <aside>
-                    <div className="">
+                    <div className="painting-details__hero-img-container">
+                        <picture>
+                            <source media="(min-width: 768px)" src={paintingBaseURL + painting.slug + heroLarge}/>
+                            <img src={paintingBaseURL + painting.slug + heroSmall} alt=""/>
+                        </picture>
                         <button
                             className="view-image-btn"
                             onClick={() => setModalActive(true)}>
                             <img src={viewImgURL} alt="view painting button"/>
                             <span>view image</span>
                         </button>
+                        <figcaption>
+                            <h2>{painting.name}</h2>
+                            <h3>{painting.artist.name}</h3>
+                        </figcaption>
                     </div>
                 </aside>
                 <article>
-                    <h1>{painting.year}</h1>
+                    <time>{painting.year}</time>
                     <p>{painting.description}</p>
                     <a
                         className="link-btn"

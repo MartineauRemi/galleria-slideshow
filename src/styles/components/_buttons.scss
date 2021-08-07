@@ -4,6 +4,22 @@ button{
     cursor: pointer;
 }
 
+.toggle-slideshow{
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    background: transparent;
+    color: $gray;
+    font-size: 0.5625rem;
+    line-height: 0.6875rem;
+    letter-spacing: 1.93px;
+    font-weight: $fw-bold;
+    
+    &:hover{
+        color: $black;
+    }
+}
+
 .close-btn{
     text-transform: uppercase;
     font-size: 0.875rem;
@@ -64,6 +80,12 @@ button{
 }
 
 @media screen and (min-width: 768px){
+    .toggle-slideshow{
+        font-size: 0.75rem;
+        line-height: 1rem;
+        letter-spacing: 2.57px;
+    }
+
     .previous-painting-btn, .next-painting-btn{
         img{
             width: 1.5rem;
