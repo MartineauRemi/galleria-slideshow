@@ -52,6 +52,7 @@ export default function PaintingDetails({paintingIndex, previousPainting, nextPa
                         </figcaption>
                     </div>
                 </aside>
+                
                 <article>
                     <time>{painting.year}</time>
                     <p>{painting.description}</p>
