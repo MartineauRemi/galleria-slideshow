@@ -1,4 +1,6 @@
 import React from 'react'
+import { merge, slideInUp, fadeIn } from 'react-animations'
+import styled, { keyframes } from 'styled-components'
 
 export default function Thumbnail({data,index, setSlideshowActive, setCurrentPainting}) {
     const imgBaseURL = '/assets/'
@@ -10,8 +12,15 @@ export default function Thumbnail({data,index, setSlideshowActive, setCurrentPai
         setCurrentPainting(index)
     }
 
+    
+    const mergeAnim = merge(slideInUp, fadeIn)
+    const fadeInAnimation = keyframes`${mergeAnim}`
+    const Thumbnail = styled.button`
+        animation: 1s ${fadeInAnimation};
+    ` 
+
     return (
-        <button
+        <Thumbnail
             className="thumbnail"
             onClick={onClickThumbnail}>
                 <figcaption>
@@ -19,6 +28,6 @@ export default function Thumbnail({data,index, setSlideshowActive, setCurrentPai
                     <h3>{data.artist.name}</h3>
                 </figcaption>
                 <img src={imgCompleteURL} alt={data.name} />
-        </button>
+        </Thumbnail>
     )
 }

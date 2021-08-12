@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import data from "../data/data.json"
+import { zoomIn, zoomOut } from 'react-animations'
+import styled, { keyframes } from 'styled-components'
 
 export default function PaintingDetails({paintingIndex, previousPainting, nextPainting, paintingsNb}) {    
     const painting = data[paintingIndex]
@@ -16,11 +18,18 @@ export default function PaintingDetails({paintingIndex, previousPainting, nextPa
     const previousBtnImgURL = '/assets/shared/icon-back-button.svg'
     const nextBtnImgURL = '/assets/shared/icon-next-button.svg'
 
+    const zoomAnim = keyframes`${modalActive? zoomIn : zoomOut}`
+    const Modal = styled.section`
+        img{
+            animation: .3s ${zoomAnim};
+        }
+    `
+
     return (
         <div className="painting-details">
             {modalActive
             ?(
-                <section className="painting-details__modal">
+                <Modal className="painting-details__modal">
                     <div className="painting-details__modal-content">
                         <button
                             className="close-btn"
@@ -30,7 +39,7 @@ export default function PaintingDetails({paintingIndex, previousPainting, nextPa
                         </button>
                         <img src={galleryCompleteURL} alt=""/>
                     </div>
-                </section>
+                </Modal>
             )
             : null}
             <main>
@@ -52,7 +61,7 @@ export default function PaintingDetails({paintingIndex, previousPainting, nextPa
                         </figcaption>
                     </div>
                 </aside>
-                
+
                 <article>
                     <time>{painting.year}</time>
                     <p>{painting.description}</p>
