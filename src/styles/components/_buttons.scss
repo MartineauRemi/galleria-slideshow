@@ -35,13 +35,19 @@ button{
 
 }
 
+.previous-painting-btn{
+    transform: rotate(180deg);
+}
+
 .previous-painting-btn, .next-painting-btn{
     background-position: center;
     background-size: cover;
+    width: 1.625rem;
+    height: 1.5rem;
 
-    img{
-        width: 1rem;
-        height: 1rem;
+
+    &--disabled{
+        cursor:auto;
     }
 }
 
@@ -85,11 +91,4 @@ button{
         line-height: 1rem;
         letter-spacing: 2.57px;
     }
-
-    .previous-painting-btn, .next-painting-btn{
-        img{
-            width: 1.5rem;
-            height: 1.5rem;
-        }
-    }   
 }

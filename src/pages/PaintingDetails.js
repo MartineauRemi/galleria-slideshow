@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import data from "../data/data.json"
 import { fadeIn, zoomIn, zoomOut } from 'react-animations'
 import styled, { keyframes } from 'styled-components'
+import ArrowButton from '../components/ArrowButton'
 
 export default function PaintingDetails({paintingIndex, previousPainting, nextPainting, paintingsNb}) {    
     const painting = data[paintingIndex]
@@ -103,18 +104,18 @@ export default function PaintingDetails({paintingIndex, previousPainting, nextPa
                 </div>
 
                 <div className="painting-details__ctrls">
-                    <button
+                    <ArrowButton
                         className="painting-details__previous-painting-btn previous-painting-btn"
                         onClick={previousPainting}
                         disabled = {paintingIndex === 0}>
                             <img src={previousBtnImgURL} alt="previous painting" />
-                    </button>
-                    <button
+                    </ArrowButton>
+                    <ArrowButton
                         className="next-painting-btn"
                         onClick={nextPainting}
                         disabled={paintingIndex === paintingsNb - 1}>
                             <img src={nextBtnImgURL} alt="next painting"/> 
-                    </button>
+                    </ArrowButton>
                 </div>
             </footer>
         </div>
