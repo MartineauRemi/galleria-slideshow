@@ -6,38 +6,42 @@ import styled, { keyframes } from 'styled-components'
 export default function PaintingDetails({paintingIndex, previousPainting, nextPainting, paintingsNb}) {    
     const painting = data[paintingIndex]
     const [modalActive, setModalActive] = useState(false)
+    const [modalIsClosing, setModalisClosing] = useState(false)
 
-    const paintingBaseURL = '/assets/'
-    const galleryEndURL = '/gallery.jpg'
-    const heroLarge = '/hero-large.jpg'
-    const heroSmall = '/hero-small.jpg'
-
-
-    const galleryCompleteURL = paintingBaseURL + painting.slug + galleryEndURL
     const viewImgURL = "/assets/shared/icon-view-image.svg"
     const previousBtnImgURL = '/assets/shared/icon-back-button.svg'
     const nextBtnImgURL = '/assets/shared/icon-next-button.svg'
 
-    const zoomAnim = keyframes`${modalActive? zoomIn : zoomOut}`
+    const zoomAnim = keyframes`${modalIsClosing? zoomOut : zoomIn}`
     const Modal = styled.section`
         img{
             animation: .3s ${zoomAnim};
         }
     `
 
+    function onClickCloseModalbtn(){
+        setModalisClosing(true)
+        setTimeout(() => {
+            setModalisClosing(false)
+            setModalActive(false)
+        }, 200)
+    }
+
     return (
         <div className="painting-details">
             {modalActive
             ?(
-                <Modal className="painting-details__modal">
+                <Modal className={`painting-details__modal ${modalIsClosing? 'painting-details__modal--is-closing' : ''}`}>
                     <div className="painting-details__modal-content">
                         <button
                             className="close-btn"
-                            onClick={() => setModalActive(false)}
+                            onClick={() => onClickCloseModalbtn()}
                             >
                             close
                         </button>
-                        <img src={galleryCompleteURL} alt=""/>
+                        <img
+                            src={painting.images.gallery}
+                            alt={painting.name}/>
                     </div>
                 </Modal>
             )
@@ -46,8 +50,8 @@ export default function PaintingDetails({paintingIndex, previousPainting, nextPa
                 <aside>
                     <div className="painting-details__hero-img-container">
                         <picture>
-                            <source media="(min-width: 768px)" src={paintingBaseURL + painting.slug + heroLarge}/>
-                            <img src={paintingBaseURL + painting.slug + heroSmall} alt=""/>
+                            <source media="(min-width: 768px)" src={painting.images.hero.large}/>
+                            <img src={painting.images.hero.small} alt=""/>
                         </picture>
                         <button
                             className="view-image-btn"
@@ -55,11 +59,18 @@ export default function PaintingDetails({paintingIndex, previousPainting, nextPa
                             <img src={viewImgURL} alt="view painting button"/>
                             <span>view image</span>
                         </button>
+                    </div>
+
+                    <div className="container">
                         <figcaption>
                             <h2>{painting.name}</h2>
                             <h3>{painting.artist.name}</h3>
                         </figcaption>
-                    </div>
+                        <img
+                                className="painting-details__artist-img"
+                                src={painting.artist.image}
+                                alt={painting.artist.name + ' portrait'} />
+                        </div>
                 </aside>
 
                 <article>

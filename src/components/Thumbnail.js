@@ -3,10 +3,7 @@ import { merge, slideInUp, fadeIn } from 'react-animations'
 import styled, { keyframes } from 'styled-components'
 
 export default function Thumbnail({data,index, setSlideshowActive, setCurrentPainting}) {
-    const imgBaseURL = '/assets/'
-    const imgEndURL = '/thumbnail.jpg'
-    const imgCompleteURL = imgBaseURL + data.slug + imgEndURL
-
+    
     function onClickThumbnail(){
         setSlideshowActive(true)
         setCurrentPainting(index)
@@ -27,7 +24,7 @@ export default function Thumbnail({data,index, setSlideshowActive, setCurrentPai
                     <h2>{data.name}</h2>
                     <h3>{data.artist.name}</h3>
                 </figcaption>
-                <img src={imgCompleteURL} alt={data.name} />
+                <img src={data.images.thumbnail} alt={data.name} />
         </Thumbnail>
     )
 }
