@@ -4,6 +4,8 @@
     display: flex;
     width: auto;
     margin-left: -1.5rem; /* gutter size offset */
+    margin-top: 6.125rem;
+    padding: 1.5rem;
     
     &__column{
         padding-left: 1.5rem; /* gutter size */
@@ -25,7 +27,6 @@
 
     @media screen and (min-width: 550px){
         margin-left: -2.5rem;
-        padding: 2.5rem;
 
         &__column{
             padding-left: 2.5rem;

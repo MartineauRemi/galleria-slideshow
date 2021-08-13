@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import data from "../data/data.json"
-import { zoomIn, zoomOut } from 'react-animations'
+import { fadeIn, zoomIn, zoomOut } from 'react-animations'
 import styled, { keyframes } from 'styled-components'
 
 export default function PaintingDetails({paintingIndex, previousPainting, nextPainting, paintingsNb}) {    
@@ -12,13 +12,22 @@ export default function PaintingDetails({paintingIndex, previousPainting, nextPa
     const previousBtnImgURL = '/assets/shared/icon-back-button.svg'
     const nextBtnImgURL = '/assets/shared/icon-next-button.svg'
 
-    const zoomAnim = keyframes`${modalIsClosing? zoomOut : zoomIn}`
+    //keyframes animations
+    const fadeInAnim = keyframes`${fadeIn}`
+    const modalZoomAnim = keyframes`${modalIsClosing? zoomOut : zoomIn}`
+    
+    //applying animations to components
     const Modal = styled.section`
         img{
-            animation: .3s ${zoomAnim};
+            animation: .3s ${modalZoomAnim};
         }
     `
 
+    const Main = styled.main`
+        animation: 1s ${fadeInAnim};
+    `
+
+    //events functions
     function onClickCloseModalbtn(){
         setModalisClosing(true)
         setTimeout(() => {
@@ -31,7 +40,7 @@ export default function PaintingDetails({paintingIndex, previousPainting, nextPa
         <div className="painting-details">
             {modalActive
             ?(
-                <Modal className={`painting-details__modal ${modalIsClosing? 'painting-details__modal--is-closing' : ''}`}>
+                <Modal className={`painting-details__modal`}>
                     <div className="painting-details__modal-content">
                         <button
                             className="close-btn"
@@ -46,7 +55,7 @@ export default function PaintingDetails({paintingIndex, previousPainting, nextPa
                 </Modal>
             )
             : null}
-            <main>
+            <Main>
                 <aside>
                     <div className="painting-details__hero-img-container">
                         <picture>
@@ -70,7 +79,7 @@ export default function PaintingDetails({paintingIndex, previousPainting, nextPa
                                 className="painting-details__artist-img"
                                 src={painting.artist.image}
                                 alt={painting.artist.name + ' portrait'} />
-                        </div>
+                    </div>
                 </aside>
 
                 <article>
@@ -84,7 +93,7 @@ export default function PaintingDetails({paintingIndex, previousPainting, nextPa
                             go to source
                     </a>
                 </article>
-            </main>
+            </Main>
             
             
             <footer>
