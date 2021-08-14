@@ -6,12 +6,11 @@ import ArrowButton from '../components/ArrowButton'
 
 export default function PaintingDetails({paintingIndex, previousPainting, nextPainting, paintingsNb}) {    
     const painting = data[paintingIndex]
+    const slideshowLength = data.length
+    const viewImgURL = "/assets/shared/icon-view-image.svg"
+
     const [modalActive, setModalActive] = useState(false)
     const [modalIsClosing, setModalisClosing] = useState(false)
-
-    const viewImgURL = "/assets/shared/icon-view-image.svg"
-    const previousBtnImgURL = '/assets/shared/icon-back-button.svg'
-    const nextBtnImgURL = '/assets/shared/icon-next-button.svg'
 
     //keyframes animations
     const fadeInAnim = keyframes`${fadeIn}`
@@ -26,6 +25,19 @@ export default function PaintingDetails({paintingIndex, previousPainting, nextPa
 
     const Main = styled.main`
         animation: 1s ${fadeInAnim};
+    `
+
+    const Footer = styled.footer`
+        &::after{
+            content: "";
+            width: ${((paintingIndex + 1) * 100) / slideshowLength}%;
+            height: 2px;
+            background: #000;
+            position: absolute;
+            top: -1.5px;
+            left: 0;
+            transition: all 0.3s ease-in-out;
+        }
     `
 
     //events functions
@@ -97,7 +109,7 @@ export default function PaintingDetails({paintingIndex, previousPainting, nextPa
             </Main>
             
             
-            <footer>
+            <Footer>
                 <div className="painting-details__main-infos">
                     <strong>{painting.name}</strong>
                     <span>{painting.artist.name}</span>
@@ -108,16 +120,14 @@ export default function PaintingDetails({paintingIndex, previousPainting, nextPa
                         className="painting-details__previous-painting-btn previous-painting-btn"
                         onClick={previousPainting}
                         disabled = {paintingIndex === 0}>
-                            <img src={previousBtnImgURL} alt="previous painting" />
                     </ArrowButton>
                     <ArrowButton
                         className="next-painting-btn"
                         onClick={nextPainting}
                         disabled={paintingIndex === paintingsNb - 1}>
-                            <img src={nextBtnImgURL} alt="next painting"/> 
                     </ArrowButton>
                 </div>
-            </footer>
+            </Footer>
         </div>
     )
 }

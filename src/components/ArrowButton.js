@@ -11,11 +11,6 @@ export default function ArrowButton({className, onClick, disabled}) {
                 height="24"
                 xmlns="http://www.w3.org/2000/svg">
                     <g
-                        stroke={
-                            disabled
-                            ? '#E5E5E5'
-                            : '#000000'
-                        }
                         fill="none"
                         fill-rule="evenodd">
                             <path
