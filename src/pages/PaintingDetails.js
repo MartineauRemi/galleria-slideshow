@@ -24,7 +24,7 @@ export default function PaintingDetails({paintingIndex, previousPainting, nextPa
     `
 
     const Main = styled.main`
-        animation: 1s ${fadeInAnim};
+        animation: .3s ${fadeInAnim};
     `
 
     const Footer = styled.footer`

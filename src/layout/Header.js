@@ -9,13 +9,15 @@ export default function Header({slideshowActive, setSlideshowActive}) {
 
     return (
         <header className="header">
-            <img src={logoURL} alt="galleria logo" width="170px" height="48px"/>
-            <button
-                className="toggle-slideshow"
-                aria-label={`${slideshowActive? 'close' : 'open'} menu`}
-                onClick={onClickBtn}>
-                {slideshowActive? 'stop' : 'start'} slideshow
-            </button>
+            <div className="header__content">
+                <img src={logoURL} alt="Welcome to Galleria" width="170px" height="48px"/>
+                <button
+                    className="toggle-slideshow"
+                    aria-label={`${slideshowActive? 'close' : 'open'} menu`}
+                    onClick={onClickBtn}>
+                    {slideshowActive? 'stop' : 'start'} slideshow
+                </button>
+            </div>
         </header>
     )
 }

@@ -105,6 +105,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 1.5rem;
     }
 
     &__modal-content{
@@ -117,7 +118,7 @@
         }
 
         img{
-            height: 65vh;
+            max-width: 100%;
         }
     }
 
@@ -205,6 +206,10 @@
         &__previous-painting{
             margin-right: 2.5rem;
         }
+
+        &__modal-content{
+            margin: 3rem;
+        }
     }
 
     @media screen and (min-width: 1440px){
@@ -252,6 +257,12 @@
 
         &__artist-img{
             position: static;
+        }
+        
+        &__modal-content{
+            img{
+                height: 65vh;
+            }
         }
     }
 }
