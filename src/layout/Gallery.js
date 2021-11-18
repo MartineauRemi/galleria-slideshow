@@ -1,6 +1,6 @@
 import React, { useLayoutEffect } from 'react'
 import Thumbnail from '../components/Thumbnail'
-import data from "../data/data.json"
+import {data} from "../data/data.js"
 import Masonry from "react-masonry-css"
 
 export default function Gallery({setSlideshowActive, previousPainting, nextPainting, setCurrentPaintingIndex}) {

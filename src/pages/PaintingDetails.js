@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import data from "../data/data.json"
+import {data} from "../data/data"
 import { fadeIn, zoomIn, zoomOut } from 'react-animations'
 import styled, { keyframes } from 'styled-components'
 import ArrowButton from '../components/ArrowButton'

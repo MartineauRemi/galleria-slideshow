@@ -1,11 +1,11 @@
 import './styles/styles.scss'
-import paintings from './data/data.json'
+import { data } from './data/data'
 import {useState} from 'react'
 import Header from './layout/Header'
 import Gallery from "./layout/Gallery"
 import PaintingDetails from './pages/PaintingDetails'
 
-const PAINTINGS_NB = paintings.length
+const PAINTINGS_NB = data.length
 
 function App() {
   const [slideshowActive, setSlideshowActive] = useState(false)
