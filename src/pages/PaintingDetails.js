@@ -7,7 +7,7 @@ import ArrowButton from '../components/ArrowButton'
 export default function PaintingDetails({paintingIndex, previousPainting, nextPainting, paintingsNb}) {    
     const painting = data[paintingIndex]
     const slideshowLength = data.length
-    const viewImgURL = "/assets/shared/icon-view-image.svg"
+    const viewImgURL = "../assets/shared/icon-view-image.svg"
 
     const [modalActive, setModalActive] = useState(false)
     const [modalIsClosing, setModalisClosing] = useState(false)

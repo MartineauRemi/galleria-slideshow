@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function Header({slideshowActive, setSlideshowActive}) {
-    const logoURL = "/assets/shared/logo.svg"
+    const logoURL = "../assets/shared/logo.svg"
     
     function onClickBtn(){
         setSlideshowActive(!slideshowActive)
