@@ -3,11 +3,11 @@ import {data} from "../data/data"
 import { fadeIn, zoomIn, zoomOut } from 'react-animations'
 import styled, { keyframes } from 'styled-components'
 import ArrowButton from '../components/ArrowButton'
+import iconViewImage from "../assets/shared/icon-view-image.svg"
 
 export default function PaintingDetails({paintingIndex, previousPainting, nextPainting, paintingsNb}) {    
     const painting = data[paintingIndex]
     const slideshowLength = data.length
-    const viewImgURL = "../assets/shared/icon-view-image.svg"
 
     const [modalActive, setModalActive] = useState(false)
     const [modalIsClosing, setModalisClosing] = useState(false)
@@ -78,7 +78,7 @@ export default function PaintingDetails({paintingIndex, previousPainting, nextPa
                         <button
                             className="view-image-btn"
                             onClick={() => setModalActive(true)}>
-                            <img src={viewImgURL} alt="view painting button"/>
+                            <img src={iconViewImage} alt="view painting button"/>
                             <span>view image</span>
                         </button>
                     </div>
