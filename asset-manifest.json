@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/MartineauRemi/invoice-app/static/css/main.6d0774e6.chunk.css",
+    "main.js": "/MartineauRemi/invoice-app/static/js/main.9d69610c.chunk.js",
+    "main.js.map": "/MartineauRemi/invoice-app/static/js/main.9d69610c.chunk.js.map",
+    "runtime-main.js": "/MartineauRemi/invoice-app/static/js/runtime-main.6c8538f9.js",
+    "runtime-main.js.map": "/MartineauRemi/invoice-app/static/js/runtime-main.6c8538f9.js.map",
+    "static/js/2.a24c1f72.chunk.js": "/MartineauRemi/invoice-app/static/js/2.a24c1f72.chunk.js",
+    "static/js/2.a24c1f72.chunk.js.map": "/MartineauRemi/invoice-app/static/js/2.a24c1f72.chunk.js.map",
+    "static/js/3.12cf65fc.chunk.js": "/MartineauRemi/invoice-app/static/js/3.12cf65fc.chunk.js",
+    "static/js/3.12cf65fc.chunk.js.map": "/MartineauRemi/invoice-app/static/js/3.12cf65fc.chunk.js.map",
+    "index.html": "/MartineauRemi/invoice-app/index.html",
+    "static/css/main.6d0774e6.chunk.css.map": "/MartineauRemi/invoice-app/static/css/main.6d0774e6.chunk.css.map",
+    "static/js/2.a24c1f72.chunk.js.LICENSE.txt": "/MartineauRemi/invoice-app/static/js/2.a24c1f72.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6c8538f9.js",
+    "static/js/2.a24c1f72.chunk.js",
+    "static/css/main.6d0774e6.chunk.css",
+    "static/js/main.9d69610c.chunk.js"
+  ]
+}
